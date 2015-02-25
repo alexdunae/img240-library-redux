@@ -12,7 +12,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    if Item.create(item_params)
+    @item = Item.new(item_params)
+    if @item.save
+      @item.fetch_image
       redirect_to root_path
     else
       render 'new'
@@ -22,6 +24,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update_attributes(item_params)
+      @item.fetch_image
       redirect_to root_path
     else
       render 'new'

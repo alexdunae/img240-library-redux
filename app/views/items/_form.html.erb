@@ -1,5 +1,13 @@
-<%= form_for(@item) do |f| %>
+<% if @item.errors.any? %>
+  <div style="background: red; color: #fff; padding: 1em;">
+    <% @item.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  </div>
+<% end %>
 
+
+<%= form_for(@item) do |f| %>
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>

@@ -8,6 +8,8 @@
     <%= item.title %>
   </h3>
 
+  <p><%= link_to 'Edit me!', edit_item_path(item) %></p>
+
   <% if item.completed? %>
     <p>This has been completed.</p>
   <% else %>
