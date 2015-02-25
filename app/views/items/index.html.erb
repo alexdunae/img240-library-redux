@@ -1,0 +1,18 @@
+<h1>My Personal Library</h1>
+
+<% @items.each do |item| %>
+  <h3>
+    <%= item.item_type.name %>:
+    <%= item.title %>
+  </h3>
+
+  <% if item.completed? %>
+    <p>This has been completed.</p>
+  <% else %>
+    <p>Still need to read or watch it.</p>
+  <% end %>
+
+  <% if item.image_url.present? %>
+    <%= image_tag item.image_url, alt: "Image for #{item.title}" %>
+  <% end %>
+<% end %>
