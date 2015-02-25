@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       @item.fetch_image
-      redirect_to root_path
+      redirect_to root_path, notice: 'Success! We added your thing!'
     else
       render 'new'
     end
@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.update_attributes(item_params)
       @item.fetch_image
-      redirect_to root_path
+      redirect_to root_path, notice: "Success! We saved #{@item.title}!!!!"
     else
       render 'new'
     end
@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    @item.redirect_to root_path
+    redirect_to root_path, notice: 'Poof!'
   end
 
   private

@@ -8,7 +8,17 @@
 </head>
 <body>
 
+<% flash.each do |key, msg| %>
+  <p class="flash-<%= key %>"><%= msg %></p>
+<% end %>
+
 <%= yield %>
+
+<br>
+<br>
+<footer>
+  <small>Copyright...</small>
+</footer>
 
 </body>
 </html>
