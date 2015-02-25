@@ -1,0 +1,22 @@
+<%= form_for(@item) do |f| %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :item_type_id %>
+    <%= f.collection_select :item_type_id, ItemType.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= f.label :completed_on %>
+    <%= f.date_select :completed_on, include_blank: true %>
+  </div>
+
+  <div>
+    <%= f.submit 'Save me!' %>
+  </div>
+
+<% end %>
