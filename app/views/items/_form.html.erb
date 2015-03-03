@@ -7,7 +7,7 @@
 <% end %>
 
 
-<%= form_for(@item) do |f| %>
+<%= form_for([@item_type, @item]) do |f| %>
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -15,7 +15,7 @@
 
   <div>
     <%= f.label :item_type_id %>
-    <%= f.collection_select :item_type_id, ItemType.all, :id, :name %>
+    <p>This is going to be a <%= @item_type.name %></p>
   </div>
 
   <div>
